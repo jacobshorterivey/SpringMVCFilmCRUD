@@ -7,11 +7,11 @@
 <title>Keyword search results</title>
 </head>
 <body>
-<c:choose>
-  <c:when test="${films.isEmpty}">
+  <c:if test="${films.isEmpty}">
     <h1>No films found with that keyword. Please go back and try again.</h1>
-  </c:when>
-  <c:otherwise>
+  </c:if>
+  <c:if test="${!films.isEmpty}">
+	<c:forEach var="f" items="${films}">
 	<h1>${film.title }</h1>
 		<ul>
 			<li>ID: ${film.id}</li>
@@ -23,8 +23,11 @@
 			<li>Replacement Cost: ${film.replacementCost}</li>
 			<li>Film Rating: ${film.rating}</li>
 			<li>Special Features: ${film.specialFeatures}</li>
-		</ul>
-  </c:otherwise>
-</c:choose>
+		</ul>	
+		<br/>
+		<p>***************************************************</p>
+		<br/>
+</c:forEach>
+	</c:if>
 </body>
 </html>

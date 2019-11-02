@@ -18,6 +18,7 @@ import com.skilldistillery.film.entities.Film;
 public class DatabaseAccessorObject implements DatabaseAccessor {
 
 	// FIELDS
+	
 	private static final String URL = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false";
 
 	static {
@@ -30,7 +31,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 	// CONSTRUCTORS
 
+	
 	// METHODS
+	
 	@Override
 	public Film findFilmById(int filmId) {
 		Film film = null;
