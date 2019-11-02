@@ -12,17 +12,12 @@
 <title>Film Search Result</title>
 </head>
 <body>
-<h1>${film.title }</h1>
-	<ul>
-		
+	<h1>${film.title }</h1>
+		<ul>
 			<li>ID:</li>
 			<li>$(film.id)</li>
 			<li>Description:</li>
 			<li>${film.description }</li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-	</ul>
+		</ul>
 </body>
 </html>
