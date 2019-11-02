@@ -5,38 +5,46 @@
 <title>Add a film</title>
 </head>
 <body>
-<h3>Add a film to our databse</h3>
+<h3><strong>Add a film to our database</strong></h3>
 <form action="addfilm.do" method="POST" modelAttribute="film">
 		<label>Title: </label>
 		<input type="text" name="filmTitle">
-		
+		<br/>
 		<label>Description: </label>
 		<input type="text" name="description">
-		
+		<br/>
 		<label>Release Year: </label>
 		<input type="text" name="releaseYear">
-		
+		<br/>
 		<label>Language ID: </label>
-		<input type="text" name="description">
-		
+		<input type="text" name="languageId">
+		<br/>
 		<label>Rental Duration: </label>
-		<input type="text" name="description">
-
+		<input type="text" name="rentalDuration">
+		<br/>
 		<label>Rental Rate: </label>
-		<input type="text" name="description">
-
+		<input type="text" name="rentalRate">
+		<br/>
 		<label>Length: </label>
 		<input type="text" name="length">
-
+		<br/>
 		<label>Replacement Cost: </label>
 		<input type="text" name="replacementCost">
-		
-		<label>Rating: </label>
-		<input type="text" name="rating">
-
-		<label>Special Features: </label>
-		<input type="text" name="specialFeatures">
-		
+		<br/>
+		<p>Select Rating:</p>
+		<select name="rating">
+		  <option value="g">G</option>
+		  <option value="pg">PG</option>
+		  <option value="pg13">PG-13</option>
+		  <option value="r">R</option>
+		  <option value="nc17">NC-17</option>
+		</select>
+		<br/>
+		<h2>Select Special Features: </h2>
+		  	<input type="checkbox" name="specialFeature1" value="Trailers"> Trailers<br>
+  			<input type="checkbox" name="specialFeature2" value="Commentaries"> Commentaries<br>
+		  	<input type="checkbox" name="specialFeature3" value="DeletedScenes" checked> Deleted Scenes<br>
+		  	<input type="checkbox" name="specialFeature4" value="BehindTheScenes" checked> Behind the Scenes<br>
 		<br/>
 		<input type="submit" value="Add Film">
 	</form>
