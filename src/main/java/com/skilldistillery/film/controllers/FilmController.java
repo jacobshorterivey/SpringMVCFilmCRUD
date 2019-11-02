@@ -14,12 +14,18 @@ public class FilmController {
 	@Autowired
 	private DatabaseAccessorObject dao;
 	
-	@RequestMapping(path="home.do")
-	public ModelAndView goHome() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/WEB-INF/Views/home.jsp");
-		return mv;
-	}
+//	@RequestMapping(path="home.do")
+//	public ModelAndView goHome() {
+//		ModelAndView mv = new ModelAndView();
+//		mv.setViewName("/WEB-INF/Views/home.jsp");
+//		return mv;
+//	}
+//	@RequestMapping(path="filmsearch.do")
+//	public ModelAndView goFilmSearch() {
+//		ModelAndView mv = new ModelAndView();
+//		mv.setViewName("/WEB-INF/Views/results.jsp");
+//		return mv;
+//	}
 	
 	@RequestMapping(path="results.do")
 	public ModelAndView findFilmById(@RequestParam("filmId") int filmId){
@@ -31,10 +37,4 @@ public class FilmController {
 		return mv;
 	}
 	
-	@RequestMapping(path="filmsearch.do")
-	public ModelAndView goFilmSearch() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/WEB-INF/Views/filmsearch.jsp");
-		return mv;
-	}
 }
