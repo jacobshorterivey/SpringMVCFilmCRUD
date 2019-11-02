@@ -23,7 +23,7 @@ public class FilmController {
 //	@RequestMapping(path="filmsearch.do")
 //	public ModelAndView goFilmSearch() {
 //		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("/WEB-INF/Views/results.jsp");
+//		mv.setViewName("filmsearch.html");
 //		return mv;
 //	}
 	
