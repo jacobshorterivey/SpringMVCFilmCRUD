@@ -13,5 +13,8 @@
 
 <h1><em>Home Page</em></h1>
 Hiiiiiiiiiiiiiii
+<form action="filmsearch.do" method="GET">
+		<input type="submit" value="login" />
+	</form>
 </body>
 </html>

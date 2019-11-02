@@ -30,4 +30,11 @@ public class FilmController {
 		mv.setViewName("/WEB-INF/Views/results.jsp");
 		return mv;
 	}
+	
+	@RequestMapping(path="filmsearch.do")
+	public ModelAndView goFilmSearch() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/WEB-INF/Views/filmsearch.jsp");
+		return mv;
+	}
 }
