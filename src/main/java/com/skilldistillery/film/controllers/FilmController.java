@@ -45,7 +45,7 @@ public class FilmController {
 			@RequestParam("languageId") int languageId, @RequestParam("rentalDuration") int rentalDuration,
 			@RequestParam("rentalRate") double rentalRate, @RequestParam("length") int length,
 			@RequestParam("replacementCost") double replacementCost, @RequestParam("rating") String rating,
-			@RequestParam("specialFeatures") String specialFeatures) {
+			@RequestParam(value="specialFeatures", required = false) String specialFeatures) {
 		ModelAndView mv = new ModelAndView();
 		Film film = new Film(0, title, description, releaseYear, languageId, rentalDuration, rentalRate, length,
 				replacementCost, rating, specialFeatures);
@@ -66,7 +66,7 @@ public class FilmController {
 			mv.setViewName("index.html");
 		}
 		else {
-			mv.setViewName("index.html");
+			mv.setViewName("WEB-INF/Views/error.jsp");
 		}
 
 		return mv;
