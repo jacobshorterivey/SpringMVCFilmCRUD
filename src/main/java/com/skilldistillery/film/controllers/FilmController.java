@@ -3,6 +3,7 @@ package com.skilldistillery.film.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -38,7 +39,7 @@ public class FilmController {
 		return mv;
 	}
 
-	@RequestMapping(path = "addFilm.do")
+	@RequestMapping(path = "addfilm.do", method=RequestMethod.POST)
 	public ModelAndView addFilm(@RequestParam("filmTitle") String title,
 			@RequestParam("description") String description, @RequestParam("releaseYear") int releaseYear,
 			@RequestParam("languageId") int languageId, @RequestParam("rentalDuration") int rentalDuration,
