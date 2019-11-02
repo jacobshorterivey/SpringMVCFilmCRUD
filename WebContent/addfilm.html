@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add a film</title>
+</head>
+<body>
+<h3>Add a film to our databse</h3>
+<form action="addfilm.do" method="POST" modelAttribute="film">
+		<label>Title: </label>
+		<input type="text" name="filmTitle">
+		
+		<label>Description: </label>
+		<input type="text" name="description">
+		
+		<label>Release Year: </label>
+		<input type="text" name="releaseYear">
+		
+		<label>Language ID: </label>
+		<input type="text" name="description">
+		
+		<label>Rental Duration: </label>
+		<input type="text" name="description">
+
+		<label>Rental Rate: </label>
+		<input type="text" name="description">
+
+		<label>Length: </label>
+		<input type="text" name="length">
+
+		<label>Replacement Cost: </label>
+		<input type="text" name="replacementCost">
+		
+		<label>Rating: </label>
+		<input type="text" name="rating">
+
+		<label>Special Features: </label>
+		<input type="text" name="specialFeatures">
+		
+		<br/>
+		<input type="submit" value="Add Film">
+	</form>
+</body>
+</html>
