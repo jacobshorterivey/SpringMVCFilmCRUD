@@ -39,7 +39,7 @@ public class FilmController {
 		return mv;
 	}
 
-	@RequestMapping(path = "addfilm.do", method=RequestMethod.POST)
+	@RequestMapping(path = "addfilm.do", method = RequestMethod.POST)
 	public ModelAndView addFilm(@RequestParam("filmTitle") String title,
 			@RequestParam("description") String description, @RequestParam("releaseYear") int releaseYear,
 			@RequestParam("languageId") int languageId, @RequestParam("rentalDuration") int rentalDuration,
@@ -53,6 +53,17 @@ public class FilmController {
 
 		mv.addObject("film", film);
 		mv.setViewName("WEB-INF/Views/results.jsp");
+		return mv;
+	}
+
+	@RequestMapping(path = "deletefilm.do")
+	public ModelAndView deleteFilm(@RequestParam("filmId") int filmId) {
+		ModelAndView mv = new ModelAndView();
+		Film film = dao.findFilmById(filmId);
+		boolean wasSuccessful = dao.deleteFilm(film);
+		
+		mv.setViewName("index.html");
+
 		return mv;
 	}
 
