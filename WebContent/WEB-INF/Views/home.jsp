@@ -13,9 +13,9 @@
 	<h1><em>Home Page</em></h1>
 	<h3><strong>Film Search</strong></h3>
 	<form:form action="results.do" method="GET" modelAttribute="film">
-		<form:label path="filmId">Film ID: </form:label> <br/>
-		<form:input path="filmId" name="filmId"/><br/>
-		<form:errors path="filmId"/> <br/>
+		<form:label path="f">Film ID: </form:label>
+		<form:input path="fI" name="filmId"/>
+		<form:errors path="filmId"/><br/>
 		<input type="submit" value="Submit" />
 	</form:form>
 </body>
