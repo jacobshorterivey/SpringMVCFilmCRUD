@@ -17,7 +17,7 @@ public class FilmController {
 	@RequestMapping(path="home.do")
 	public ModelAndView goHome() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/Views/home.jsp");
+		mv.setViewName("/WEB-INF/Views/home.jsp");
 		return mv;
 	}
 	
