@@ -6,20 +6,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Film Search</title>
 </head>
 <body>
 
 	<h3>
 		<strong>Film Search</strong>
-	</h3>
-	
+	</h3> 
 	<form:form action="results.do" method="GET" modelAttribute="film">
-		<form:label path="filmId">Film ID: </form:label>
+		<form:label >Film ID: </form:label>
 		<form:input path="filmId" name="filmId" />
 		<form:errors path="filmId" />
 		<br />
-		<input type="submit" value="Submit" />
+		<input type="submit" value="Search" />
 	</form:form>
 	
 </body>
