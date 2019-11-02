@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Film Search Result</title>
+<title>Film</title>
 </head>
 <body>
 <c:choose>
