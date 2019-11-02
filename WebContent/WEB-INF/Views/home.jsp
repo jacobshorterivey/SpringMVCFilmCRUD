@@ -12,7 +12,7 @@
 <body>
 	<h1><em>Home Page</em></h1>
 	<h3><strong>Film Search</strong></h3>
-	<form:form action="home.do" method="GET" modelAttribute="film">
+	<form:form action="results.do" method="GET" modelAttribute="film">
 		<form:label path="filmId">Film ID: </form:label>
 		<form:input path="filmId"/>
 		<form:errors path="filmId"/>
