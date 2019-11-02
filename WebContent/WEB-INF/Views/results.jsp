@@ -31,7 +31,8 @@
 		<form action="filmsearch.html" method="GET">
 		<input type="submit" value="Edit" />
 		</form>
-		<form action="addfilm.html" method="GET">
+		<form action="deletefilm.do" method="POST">
+		<input type="hidden" name="filmId" value="${film.id }" />
 		<input type="submit" value="Delete" />
 		</form>
 	</c:if>

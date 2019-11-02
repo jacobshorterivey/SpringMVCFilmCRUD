@@ -56,13 +56,18 @@ public class FilmController {
 		return mv;
 	}
 
-	@RequestMapping(path = "deletefilm.do")
+	@RequestMapping(path = "deletefilm.do", method = RequestMethod.POST)
 	public ModelAndView deleteFilm(@RequestParam("filmId") int filmId) {
 		ModelAndView mv = new ModelAndView();
 		Film film = dao.findFilmById(filmId);
-		boolean wasSuccessful = dao.deleteFilm(film);
 		
-		mv.setViewName("index.html");
+		boolean wasSuccessful = dao.deleteFilm(film);
+		if(wasSuccessful) {
+			mv.setViewName("index.html");
+		}
+		else {
+			mv.setViewName("index.html");
+		}
 
 		return mv;
 	}
