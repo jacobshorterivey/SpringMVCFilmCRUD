@@ -17,7 +17,7 @@ public class FilmController {
 	@RequestMapping(path="home.do")
 	public ModelAndView goHome() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/Views/home.jsp");
+		mv.setViewName("/WEB-INF/Views/home.jsp");
 		return mv;
 	}
 	
@@ -27,7 +27,7 @@ public class FilmController {
 		Film film = dao.findFilmById(filmId);
 		
 		mv.addObject("film", film);
-		mv.setViewName("/WEB-INF/results.jsp");
+		mv.setViewName("/WEB-INF/Views/results.jsp");
 		return mv;
 	}
 }
