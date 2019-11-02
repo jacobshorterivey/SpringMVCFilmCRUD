@@ -36,7 +36,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		Film film = null;
 		String user = "student";
 		String password = "student";
-		String sql = "SELECT film.id, film.title, film.release_year, film.rating, film.description, language.name FROM film JOIN language ON film.language_id = language.id WHERE film.id = ?";
+		String sql = "SELECT film.id, film.title, film.release_year, film.rating, film.description, "
+				+ "film.language_id, film.rental_duration, film.rental_rate, film.length, film.replacement_cost, film.special_features, "
+				+ "language.name FROM film JOIN language ON film.language_id = language.id WHERE film.id = ?";
 
 		try {
 			Connection conn = DriverManager.getConnection(URL, user, password);
@@ -51,6 +53,12 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				film.setReleaseYear(filmResult.getInt("film.release_year"));
 				film.setRating(filmResult.getString("film.rating"));
 				film.setDescription(filmResult.getString("film.description"));
+				film.setLanguageId(filmResult.getInt("film.language_id"));
+				film.setRentalDuration(filmResult.getInt("film.rental_duration"));
+				film.setRentalRate(filmResult.getDouble("film.rental_duration"));
+				film.setLength(filmResult.getInt("film.length"));
+				film.setReplacementCost(filmResult.getDouble("film.replacement_cost"));
+				film.setSpecialFeatures(filmResult.getString("film.special_features"));
 				film.setLanguage(filmResult.getString("language.name"));
 
 				film.setActorsInFilm(findActorsByFilmId(filmId));
