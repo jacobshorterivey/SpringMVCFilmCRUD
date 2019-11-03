@@ -71,5 +71,52 @@ public class FilmController {
 
 		return mv;
 	}
+	@RequestMapping(path = "editfilmform.do", method = RequestMethod.POST)
+	public ModelAndView editFilmForm(@RequestParam("filmId") int filmId, @RequestParam("filmTitle") String title,
+			@RequestParam("description") String description, @RequestParam("releaseYear") int releaseYear,
+			@RequestParam("languageId") int languageId, @RequestParam("rentalDuration") int rentalDuration,
+			@RequestParam("rentalRate") double rentalRate, @RequestParam("length") int length,
+			@RequestParam("replacementCost") double replacementCost, @RequestParam("rating") String rating,
+			@RequestParam(value="specialFeatures", required = false) String specialFeatures) {
+		ModelAndView mv = new ModelAndView();
+		Film film = dao.findFilmById(filmId);
+		
+//		boolean wasSuccessful = dao.editFilm(film);
+//		if(wasSuccessful) {
+//			mv.addObject("film", film);
+//			mv.setViewName("WEB-INF/Views/results.jsp");
+//		}
+//		else {
+//			mv.setViewName("WEB-INF/Views/error.jsp");
+//		}
+		mv.addObject("film", film);
+		mv.setViewName("WEB-INF/Views/editfilmform.jsp");
+
+		
+		return mv;
+	}
+	@RequestMapping(path = "editfilm.do", method = RequestMethod.POST)
+	public ModelAndView editFilmDisplay(@RequestParam("filmId") int filmId, @RequestParam("filmTitle") String title,
+			@RequestParam("description") String description, @RequestParam("releaseYear") int releaseYear,
+			@RequestParam("languageId") int languageId, @RequestParam("rentalDuration") int rentalDuration,
+			@RequestParam("rentalRate") double rentalRate, @RequestParam("length") int length,
+			@RequestParam("replacementCost") double replacementCost, @RequestParam("rating") String rating,
+			@RequestParam(value="specialFeatures", required = false) String specialFeatures) {
+		ModelAndView mv = new ModelAndView();
+		Film film = dao.findFilmById(filmId);
+		
+		boolean wasSuccessful = dao.editFilm(film);
+//		if(wasSuccessful) {
+//			mv.addObject("film", film);
+//			mv.setViewName("WEB-INF/Views/results.jsp");
+//		}
+//		else {
+//			mv.setViewName("WEB-INF/Views/error.jsp");
+//		}
+		mv.addObject("film", film);
+		mv.setViewName("WEB-INF/Views/results.jsp");
+		
+		return mv;
+	}
 
 }
