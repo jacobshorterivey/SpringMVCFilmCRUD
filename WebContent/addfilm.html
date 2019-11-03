@@ -7,29 +7,39 @@
 <body>
 <h3><strong>Add a film to our database</strong></h3>
 <form action="addfilm.do" method="POST" modelAttribute="film">
-		<label>Title: </label>
+		<label>Title (String input): </label>
 		<input type="text" name="filmTitle">
 		<br/>
-		<label>Description: </label>
+		<label>Description (String input): </label>
 		<input type="text" name="description">
 		<br/>
-		<label>Release Year: </label>
+		<label>Release Year (Integer input): </label>
 		<input type="text" name="releaseYear">
 		<br/>
-		<label>Language ID: </label>
-		<input type="text" name="languageId">
+		<p>Select Rating: </p>
+		<select name="language">
+		  <option value="English">English</option>
+		  <option value="Italian">Italian</option>
+		  <option value="Japanese">Japanese</option>
+		  <option value="Mandarin">Mandarin</option>
+		  <option value="French">French</option>
+		  <option value="German">German</option>
+		</select>
 		<br/>
-		<label>Rental Duration: </label>
+		<label>Rental Duration (Integer input): </label>
 		<input type="text" name="rentalDuration">
 		<br/>
-		<label>Rental Rate: </label>
+		<label>Rental Rate (Double input): </label>
 		<input type="text" name="rentalRate">
 		<br/>
-		<label>Length: </label>
+		<label>Length (Integer input): </label>
 		<input type="text" name="length">
 		<br/>
-		<label>Replacement Cost: </label>
+		<label>Replacement Cost (Double input): </label>
 		<input type="text" name="replacementCost">
+		<br/>
+		<label>Category (String input): </label>
+		<input type="text" name="category">
 		<br/>
 		<p>Select Rating:</p>
 		<select name="rating">
