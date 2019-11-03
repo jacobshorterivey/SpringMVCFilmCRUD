@@ -143,7 +143,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		List<Film> films = new ArrayList<>();
 		String user = "student";
 		String password = "student";
-		String sql = "SELECT film.id, film.title, film.release_year, film.rating, film.description, language.name FROM film JOIN language ON film.language_id = language.id WHERE film.title LIKE ? OR film.description LIKE ?";
+		String sql = "SELECT film.id, film.language_id, film.rental_duration, film.length, film.rental_rate, film.special_features, film.replacement_cost, film.title, film.release_year, film.rating, film.description, language.name FROM film JOIN language ON film.language_id = language.id WHERE film.title LIKE ? OR film.description LIKE ?";
 
 		try {
 			Connection conn = DriverManager.getConnection(URL, user, password);
@@ -163,7 +163,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				film.setLanguage(filmResult.getString("language.name"));
 				film.setRentalDuration(filmResult.getInt("film.rental_duration"));
 				film.setRentalRate(filmResult.getDouble("film.rental_rate"));
-//				film.setLength(filmResult.getInt("film.length"));
+				film.setLength(filmResult.getInt("film.length"));
 				film.setReplacementCost(filmResult.getDouble("film.replacement_cost"));
 				film.setSpecialFeatures(filmResult.getString("film.special_features"));
 //				
