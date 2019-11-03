@@ -20,68 +20,37 @@ public class Film {
 	private String category;
 
 	// CONSTRUCTORS
-
-	public Film(int id, String title, String description, int releaseYear, int languageId, String language,
-			int rentalDuration, double rentalRate, int length, double replacementCost, String rating,
-			String specialFeatures, List<Actor> actorsInFilm) {
+	public Film(String title, String description, int releaseYear, int languageId, int rentalDuration,
+			double rentalRate, int length, double replacementCost, String rating, String specialFeatures) {
 		super();
-		this.id = id;
 		this.title = title;
 		this.description = description;
 		this.releaseYear = releaseYear;
 		this.languageId = languageId;
-		this.language = language;
 		this.rentalDuration = rentalDuration;
 		this.rentalRate = rentalRate;
 		this.length = length;
 		this.replacementCost = replacementCost;
 		this.rating = rating;
 		this.specialFeatures = specialFeatures;
+	}
+	
+	public Film(int id, String title, String description, int releaseYear, int languageId, int rentalDuration,
+			double rentalRate, int length, double replacementCost, String rating, String specialFeatures) {
+		this(title, description, releaseYear, languageId, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures);
+		this.id = id;
+	}
+	
+	public Film(int id, String title, String description, int releaseYear, int languageId, String language,
+			int rentalDuration, double rentalRate, int length, double replacementCost, String rating,
+			String specialFeatures, List<Actor> actorsInFilm) {
+		this(id, title, description, releaseYear, languageId, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures);
 		this.actorsInFilm = actorsInFilm;
 	}
 
 	public Film(int id, String title, String description, int releaseYear, int languageId, int rentalDuration,
-			double rentalRate, int length, double replacementCost, String rating, String specialFeatures) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.description = description;
-		this.releaseYear = releaseYear;
-		this.languageId = languageId;
-		this.rentalDuration = rentalDuration;
-		this.rentalRate = rentalRate;
-		this.length = length;
-		this.replacementCost = replacementCost;
-		this.rating = rating;
-		this.specialFeatures = specialFeatures;
-	}
-	public Film(String title, String description, int releaseYear, int languageId, int rentalDuration,
-			double rentalRate, int length, double replacementCost, String rating, String specialFeatures) {
-		super();
-		this.title = title;
-		this.description = description;
-		this.releaseYear = releaseYear;
-		this.languageId = languageId;
-		this.rentalDuration = rentalDuration;
-		this.rentalRate = rentalRate;
-		this.length = length;
-		this.replacementCost = replacementCost;
-		this.rating = rating;
-		this.specialFeatures = specialFeatures;
-	}
-	public Film(String title, String description, int releaseYear, int languageId, int rentalDuration,
-			double rentalRate, int length, double replacementCost, String rating, String specialFeatures, String category) {
-		super();
-		this.title = title;
-		this.description = description;
-		this.releaseYear = releaseYear;
-		this.languageId = languageId;
-		this.rentalDuration = rentalDuration;
-		this.rentalRate = rentalRate;
-		this.length = length;
-		this.replacementCost = replacementCost;
-		this.rating = rating;
-		this.specialFeatures = specialFeatures;
+			double rentalRate, int length, double replacementCost, String rating, String specialFeatures, List<Actor> actorsInFilm, String category) {
+		this(id, title, description, releaseYear, languageId, category, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures, actorsInFilm);
 		this.category = category;
 	}
 

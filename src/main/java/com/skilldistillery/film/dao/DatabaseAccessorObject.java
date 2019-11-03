@@ -18,7 +18,7 @@ import com.skilldistillery.film.entities.Film;
 public class DatabaseAccessorObject implements DatabaseAccessor {
 
 	// FIELDS
-	
+
 	private static final String URL = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false";
 
 	static {
@@ -31,9 +31,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 	// CONSTRUCTORS
 
-	
 	// METHODS
-	
+
 	@Override
 	public Film findFilmById(int filmId) {
 		Film film = null;
@@ -166,28 +165,10 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				film.setLength(filmResult.getInt("film.length"));
 				film.setReplacementCost(filmResult.getDouble("film.replacement_cost"));
 				film.setSpecialFeatures(filmResult.getString("film.special_features"));
-//				
-				
 				film.setActorsInFilm(findActorsByFilmId(film.getId()));
-				
+
 				films.add(film);
 
-//				film = new Film();
-//				film.setId(filmResult.getInt("film.id"));
-//				film.setTitle(filmResult.getString("film.title"));
-//				film.setReleaseYear(filmResult.getInt("film.release_year"));
-//				film.setRating(filmResult.getString("film.rating"));
-//				film.setDescription(filmResult.getString("film.description"));
-//				film.setLanguageId(filmResult.getInt("film.language_id"));
-//				film.setRentalDuration(filmResult.getInt("film.rental_duration"));
-//				film.setRentalRate(filmResult.getDouble("film.rental_rate"));
-//				film.setLength(filmResult.getInt("film.length"));
-//				film.setReplacementCost(filmResult.getDouble("film.replacement_cost"));
-//				film.setSpecialFeatures(filmResult.getString("film.special_features"));
-//				film.setLanguage(filmResult.getString("language.name"));
-//				film.setActorsInFilm(findActorsByFilmId(film.getId()));
-
-				
 			}
 			filmResult.close();
 			stmt.close();
@@ -288,43 +269,45 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		}
 		return true;
 	}
-	
+
 	public boolean editFilm(Film old, Film update) {
 		String user = "student";
 		String password = "student";
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(URL, user, password);
-		    conn.setAutoCommit(false); // START TRANSACTION
-		    String sql = "UPDATE film SET film.title=?, film.release_year=?, film.rating=?, film.description=?, film.language_id=?,"
-		    		+ " film.rental_duration=?, film.rental_rate=?, film.length=?, film.replacement_cost=?, film.special_features=? WHERE id=?";
-		    PreparedStatement stmt = conn.prepareStatement(sql);
-		    stmt.setString(1, update.getTitle());
-		    stmt.setInt(2, update.getReleaseYear());
-		    stmt.setString(3, update.getRating());
-		    stmt.setString(4, update.getDescription());
-		    stmt.setInt(5, update.getLanguageId());
-		    stmt.setInt(6, update.getRentalDuration());
-		    stmt.setDouble(7, update.getRentalRate());
-		    stmt.setInt(8, update.getLength());
-		    stmt.setDouble(9, update.getReplacementCost());
-		    stmt.setString(10, update.getSpecialFeatures());
-		    stmt.setInt(11, old.getId());
-		    
-		    int updateCount = stmt.executeUpdate();
-		    if (updateCount == 1) {
-		      conn.commit();           // COMMIT TRANSACTION
-		    }
-		  } catch (SQLException sqle) {
-		    sqle.printStackTrace();
-		    if (conn != null) {
-		      try { conn.rollback(); } // ROLLBACK TRANSACTION ON ERROR
-		      catch (SQLException sqle2) {
-		        System.err.println("Error trying to rollback");
-		      }
-		    }
-		    return false;
-		  }
-		  return true;
+			conn.setAutoCommit(false); // START TRANSACTION
+			String sql = "UPDATE film SET film.title=?, film.release_year=?, film.rating=?, film.description=?, film.language_id=?,"
+					+ " film.rental_duration=?, film.rental_rate=?, film.length=?, film.replacement_cost=?, film.special_features=? WHERE id=?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, update.getTitle());
+			stmt.setInt(2, update.getReleaseYear());
+			stmt.setString(3, update.getRating());
+			stmt.setString(4, update.getDescription());
+			stmt.setInt(5, update.getLanguageId());
+			stmt.setInt(6, update.getRentalDuration());
+			stmt.setDouble(7, update.getRentalRate());
+			stmt.setInt(8, update.getLength());
+			stmt.setDouble(9, update.getReplacementCost());
+			stmt.setString(10, update.getSpecialFeatures());
+			stmt.setInt(11, old.getId());
+
+			int updateCount = stmt.executeUpdate();
+			if (updateCount == 1) {
+				conn.commit(); // COMMIT TRANSACTION
+			}
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} // ROLLBACK TRANSACTION ON ERROR
+				catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+				}
+			}
+			return false;
 		}
+		return true;
+	}
 }
