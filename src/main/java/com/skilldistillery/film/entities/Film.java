@@ -17,7 +17,7 @@ public class Film {
 	private String rating;
 	private String specialFeatures;
 	private List<Actor> actorsInFilm;
-	private String category;
+	private String category = "unknown";
 
 	// CONSTRUCTORS
 	public Film(String title, String description, int releaseYear, int languageId, int rentalDuration,
@@ -34,6 +34,7 @@ public class Film {
 		this.rating = rating;
 		this.specialFeatures = specialFeatures;
 	}
+	
 	public Film(int id, String title, String description, int releaseYear, String language, int rentalDuration, double rentalRate, int length, double replacementCost, String rating, String specialFeatures) {
 		this(id, title, description, releaseYear, 1, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures);
 		this.language = language;
