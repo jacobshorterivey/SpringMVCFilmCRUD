@@ -33,8 +33,10 @@
 				<li>Rental Rate: ${film.rentalRate}</li>
 				<li>Replacement Cost: ${film.replacementCost}</li>
 				<li>Length: ${film.length}</li>
+				<li>Category: ${film.category }</li>
 				<li>Film Rating: ${film.rating}</li>
 				<li>Special Features: ${film.specialFeatures}</li>
+				<li>Actors: ${film.actorsInFilm}
 			</ul>
 			
 			<c:if test="${film.id > 1000 }">

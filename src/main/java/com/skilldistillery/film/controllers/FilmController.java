@@ -18,19 +18,6 @@ public class FilmController {
 	@Autowired
 	private DatabaseAccessorObject dao;
 
-//	@RequestMapping(path="home.do")
-//	public ModelAndView goHome() {
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("/WEB-INF/Views/home.jsp");
-//		return mv;
-//	}
-//	@RequestMapping(path="filmsearch.do")
-//	public ModelAndView goFilmSearch() {
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("filmsearch.html");
-//		return mv;
-//	}
-
 	@RequestMapping(path = "results.do")
 	public ModelAndView findFilmById(@RequestParam("filmId") int filmId) {
 		ModelAndView mv = new ModelAndView();
