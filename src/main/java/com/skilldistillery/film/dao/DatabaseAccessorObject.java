@@ -38,9 +38,10 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		Film film = null;
 		String user = "student";
 		String password = "student";
-		String sql = "SELECT film.id, film.title, film.release_year, film.rating, film.description, "
-				+ "film.language_id, film.rental_duration, film.rental_rate, film.length, film.replacement_cost, film.special_features, "
-				+ "language.name FROM film JOIN language ON film.language_id = language.id WHERE film.id = ?";
+		String sql = "SELECT category.name, film.id, film.language_id, film.rental_duration, film.length, film.rental_rate, film.special_features, "
+				+ "film.replacement_cost, film.title, film.release_year, film.rating, film.description, language.name FROM film JOIN film_category"
+				+ " on film.id = film_category.film_id JOIN category on film_category.category_id = category.id" 
+				+ " JOIN language ON film.language_id = language.id WHERE film.id = ?";
 
 		try {
 			Connection conn = DriverManager.getConnection(URL, user, password);
@@ -56,6 +57,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				film.setRating(filmResult.getString("film.rating"));
 				film.setDescription(filmResult.getString("film.description"));
 				film.setLanguageId(filmResult.getInt("film.language_id"));
+				film.setCategory(filmResult.getString("category.name"));
 				film.setRentalDuration(filmResult.getInt("film.rental_duration"));
 				film.setRentalRate(filmResult.getDouble("film.rental_rate"));
 				film.setLength(filmResult.getInt("film.length"));
@@ -142,7 +144,11 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		List<Film> films = new ArrayList<>();
 		String user = "student";
 		String password = "student";
-		String sql = "SELECT film.id, film.language_id, film.rental_duration, film.length, film.rental_rate, film.special_features, film.replacement_cost, film.title, film.release_year, film.rating, film.description, language.name FROM film JOIN language ON film.language_id = language.id WHERE film.title LIKE ? OR film.description LIKE ?";
+		String sql = "SELECT category.name, film.id, film.language_id, film.rental_duration, film.length, film.rental_rate, film.special_features, "
+				+ "film.replacement_cost, film.title, film.release_year, film.rating, film.description, language.name FROM film JOIN film_category"
+				+ " on film.id = film_category.film_id JOIN category on film_category.category_id = category.id" 
+				+ " JOIN language ON film.language_id = language.id WHERE film.title "
+				+ "LIKE ? OR film.description LIKE ?";
 
 		try {
 			Connection conn = DriverManager.getConnection(URL, user, password);
@@ -163,12 +169,12 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				film.setRentalDuration(filmResult.getInt("film.rental_duration"));
 				film.setRentalRate(filmResult.getDouble("film.rental_rate"));
 				film.setLength(filmResult.getInt("film.length"));
+				film.setCategory(filmResult.getString("category.name"));
 				film.setReplacementCost(filmResult.getDouble("film.replacement_cost"));
 				film.setSpecialFeatures(filmResult.getString("film.special_features"));
 				film.setActorsInFilm(findActorsByFilmId(film.getId()));
 
 				films.add(film);
-
 			}
 			filmResult.close();
 			stmt.close();
