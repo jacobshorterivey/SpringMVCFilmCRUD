@@ -17,7 +17,7 @@ public class Film {
 	private String rating;
 	private String specialFeatures;
 	private List<Actor> actorsInFilm;
-	private String category;
+	private String category = "unknown";
 
 	// CONSTRUCTORS
 	public Film(String title, String description, int releaseYear, int languageId, int rentalDuration,
