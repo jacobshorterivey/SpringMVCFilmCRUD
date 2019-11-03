@@ -19,7 +19,7 @@
 			<li>ID: ${film.id}</li>
 			<li>Description: ${film.description}</li>
 			<li>Release Year: ${film.releaseYear}</li>
-			<li>Language ID: ${film.languageId}</li>
+			<li>Language: ${film.language}</li>
 			<li>Rental Duration: ${film.rentalDuration}</li>
 			<li>Rental Rate: ${film.rentalRate}</li>
 			<li>Replacement Cost: ${film.replacementCost}</li>

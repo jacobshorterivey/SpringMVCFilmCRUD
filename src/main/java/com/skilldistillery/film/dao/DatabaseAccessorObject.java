@@ -58,7 +58,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				film.setDescription(filmResult.getString("film.description"));
 				film.setLanguageId(filmResult.getInt("film.language_id"));
 				film.setRentalDuration(filmResult.getInt("film.rental_duration"));
-				film.setRentalRate(filmResult.getDouble("film.rental_duration"));
+				film.setRentalRate(filmResult.getDouble("film.rental_rate"));
 				film.setLength(filmResult.getInt("film.length"));
 				film.setReplacementCost(filmResult.getDouble("film.replacement_cost"));
 				film.setSpecialFeatures(filmResult.getString("film.special_features"));
@@ -148,8 +148,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		try {
 			Connection conn = DriverManager.getConnection(URL, user, password);
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setString(1, "\'%" + keyword + "%\'");
-			stmt.setString(2, "\'%" + keyword + "%\'");
+			stmt.setString(1, "%" + keyword + "%");
+			stmt.setString(2, "%" + keyword + "%");
 			ResultSet filmResult = stmt.executeQuery();
 
 			while (filmResult.next()) {
@@ -159,9 +159,35 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				film.setReleaseYear(filmResult.getInt("film.release_year"));
 				film.setRating(filmResult.getString("film.rating"));
 				film.setDescription(filmResult.getString("film.description"));
+				film.setLanguageId(filmResult.getInt("film.language_id"));
 				film.setLanguage(filmResult.getString("language.name"));
+				film.setRentalDuration(filmResult.getInt("film.rental_duration"));
+				film.setRentalRate(filmResult.getDouble("film.rental_rate"));
+//				film.setLength(filmResult.getInt("film.length"));
+				film.setReplacementCost(filmResult.getDouble("film.replacement_cost"));
+				film.setSpecialFeatures(filmResult.getString("film.special_features"));
+//				
+				
 				film.setActorsInFilm(findActorsByFilmId(film.getId()));
+				
 				films.add(film);
+
+//				film = new Film();
+//				film.setId(filmResult.getInt("film.id"));
+//				film.setTitle(filmResult.getString("film.title"));
+//				film.setReleaseYear(filmResult.getInt("film.release_year"));
+//				film.setRating(filmResult.getString("film.rating"));
+//				film.setDescription(filmResult.getString("film.description"));
+//				film.setLanguageId(filmResult.getInt("film.language_id"));
+//				film.setRentalDuration(filmResult.getInt("film.rental_duration"));
+//				film.setRentalRate(filmResult.getDouble("film.rental_rate"));
+//				film.setLength(filmResult.getInt("film.length"));
+//				film.setReplacementCost(filmResult.getDouble("film.replacement_cost"));
+//				film.setSpecialFeatures(filmResult.getString("film.special_features"));
+//				film.setLanguage(filmResult.getString("language.name"));
+//				film.setActorsInFilm(findActorsByFilmId(film.getId()));
+
+				
 			}
 			filmResult.close();
 			stmt.close();
