@@ -36,7 +36,7 @@ public class FilmController {
 			@RequestParam("replacementCost") double replacementCost, @RequestParam("rating") String rating,
 			@RequestParam(value="specialFeatures", required = false) String specialFeatures) {
 		ModelAndView mv = new ModelAndView();
-		Film film = new Film(0, title, description, releaseYear, language, rentalDuration, rentalRate, length,
+		Film film = new Film(title, description, releaseYear, language, rentalDuration, rentalRate, length,
 				replacementCost, rating, specialFeatures);
 		film = dao.createFilm(film);
 
