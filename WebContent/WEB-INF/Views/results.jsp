@@ -47,6 +47,8 @@
 		<input type="submit" value="Delete" />
 		</form>
 	</c:if>
-
+<form action="index.html">
+    <input type="submit" value="Home" />
+</form>
 </body>
 </html>
