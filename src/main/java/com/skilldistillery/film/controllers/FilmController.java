@@ -74,7 +74,7 @@ public class FilmController {
 	@RequestMapping(path = "editfilm.do", method = RequestMethod.POST)
 	public ModelAndView editFilmDisplay(@RequestParam("filmId") int filmId, @RequestParam("filmTitle") String title,
 			@RequestParam("description") String description, @RequestParam("releaseYear") int releaseYear,
-			@RequestParam("language") int languageId, @RequestParam("rentalDuration") int rentalDuration,
+			@RequestParam("languageId") int languageId, @RequestParam("rentalDuration") int rentalDuration,
 			@RequestParam("rentalRate") double rentalRate, @RequestParam("length") int length,
 			@RequestParam("replacementCost") double replacementCost, @RequestParam("rating") String rating,
 			@RequestParam(value="specialFeatures", required = false) String specialFeatures) {
