@@ -2,11 +2,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Search for film by keyword</title>
+<title>Search By Keyword</title>
 </head>
 <body>
-<h2><em>Enter a keyword to search for</em></h2>
-<form action="filmbykeyword.do" method="GET" modelAttribute="film">
+
+	<h3>
+		<strong>Enter a Keyword to Search For</strong>
+	</h3> 
+	
+<form action="filmbykeyword.do" method="GET" modelAttribute="films">
 		<label>Keyword: </label>
 		<input type="text" name="keyword">
 		<br/>
