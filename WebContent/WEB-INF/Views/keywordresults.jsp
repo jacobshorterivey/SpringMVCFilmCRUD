@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,12 +9,17 @@
 <title>Keyword search results</title>
 </head>
 <body>
-	<c:if test="${films.isEmpty()}">
-		<h1>No films found with that keyword. Please go back and try
-			again.</h1>
-	</c:if>
-	<c:if test="${!films.isEmpty()}">
-		<c:forEach var="f" items="${films}">
+
+<%-- <c:choose>
+  
+  <c:when test="${films.isEmpty()}">
+		<h1>No films found with that keyword.</h1>
+		<p>Please go back and try again.</p>
+  </c:when> --%>
+  
+<%--   <c:otherwise>
+ --%>		
+		<c:forEach var="film" items="${films}">
 			<h3>${film.title }</h3>
 			<ul>
 				<li>ID: ${film.id}</li>
@@ -29,6 +36,9 @@
 			<p>***************************************************</p>
 			<br />
 		</c:forEach>
-	</c:if>
+<%-- 
+  </c:otherwise>
+</c:choose> --%>
+
 </body>
 </html>
