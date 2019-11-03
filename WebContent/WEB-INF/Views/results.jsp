@@ -28,7 +28,18 @@
 		</ul>
 	</c:if>
 	<c:if test="${film.id > 1000 }">
-		<form action="filmsearch.html" method="GET">
+		<form action="editfilmform.do" method="POST">
+		<input type="hidden" name="filmId" value="${film.id }" />
+		<input type="hidden" name="filmTitle" value="${film.title }" />
+		<input type="hidden" name="description" value="${film.description }" />
+		<input type="hidden" name="releaseYear" value="${film.releaseYear }" />
+		<input type="hidden" name="languageId" value="${film.languageId }" />
+		<input type="hidden" name="rentalDuration" value="${film.rentalDuration }" />
+		<input type="hidden" name="rentalRate" value="${film.rentalRate }" />
+		<input type="hidden" name="length" value="${film.length }" />
+		<input type="hidden" name="replacementCost" value="${film.replacementCost }" />
+		<input type="hidden" name="rating" value="${film.rating }" />
+		<input type="hidden" name="specialFeatures" value="${film.specialFeatures }" />
 		<input type="submit" value="Edit" />
 		</form>
 		<form action="deletefilm.do" method="POST">

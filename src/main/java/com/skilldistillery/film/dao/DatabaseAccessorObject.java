@@ -288,4 +288,54 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		}
 		return true;
 	}
+	
+	public boolean editFilm(Film film) {
+		String user = "student";
+		String password = "student";
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection(URL, user, password);
+		    conn.setAutoCommit(false); // START TRANSACTION
+		    String sql = "UPDATE film SET film.title=?, film.release_year=?, film.rating=?, film.description=?, film.language_id=?,"
+		    		+ "film.rental_duration=?, film.rental_rate=?, film.length=?, film.replacement_cost=?"
+		               + " WHERE id=?";
+		    PreparedStatement stmt = conn.prepareStatement(sql);
+		    stmt.setString(1, film.getTitle());
+		    stmt.setInt(2, film.getReleaseYear());
+		    stmt.setString(3, film.getRating());
+		    stmt.setInt(4, film.getLanguageId());
+		    stmt.setInt(5, film.getRentalDuration());
+		    stmt.setDouble(6, film.getRentalRate());
+		    stmt.setInt(7, film.getLength());
+		    stmt.setDouble(8, film.getReplacementCost());
+		    stmt.setString(9, film.getDescription());
+		    stmt.setInt(10, film.getId());
+		    int updateCount = stmt.executeUpdate();
+		    if (updateCount == 1) {
+		      // Replace actor's film list
+		      sql = "DELETE FROM film_actor WHERE film_id = ?";
+		      stmt = conn.prepareStatement(sql);
+		      stmt.setInt(1, film.getId());
+		      updateCount = stmt.executeUpdate();
+		      sql = "INSERT INTO film_actor (film_id, actor_id) VALUES (?,?)";
+		      stmt = conn.prepareStatement(sql);
+		      for (Actor ac : film.getActorsInFilm()) {
+		        stmt.setInt(1, film.getId());
+		        stmt.setInt(2, ac.getId());
+		        updateCount = stmt.executeUpdate();
+		      }
+		      conn.commit();           // COMMIT TRANSACTION
+		    }
+		  } catch (SQLException sqle) {
+		    sqle.printStackTrace();
+		    if (conn != null) {
+		      try { conn.rollback(); } // ROLLBACK TRANSACTION ON ERROR
+		      catch (SQLException sqle2) {
+		        System.err.println("Error trying to rollback");
+		      }
+		    }
+		    return false;
+		  }
+		  return true;
+		}
 }
