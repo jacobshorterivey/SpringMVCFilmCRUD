@@ -38,18 +38,18 @@
 		<br/>
 		<p>Select Rating:</p>
 		<select name="rating">
-		  <option value="g">G</option>
-		  <option value="pg">PG</option>
-		  <option value="pg13">PG-13</option>
-		  <option value="r">R</option>
-		  <option value="nc17">NC-17</option>
+		  <option value="G">G</option>
+		  <option value="PG">PG</option>
+		  <option value="PG13">PG-13</option>
+		  <option value="R">R</option>
+		  <option value="NC17">NC-17</option>
 		</select>
 		<br/>
 		<h2>Select Special Features: </h2>
 		  	<input type="checkbox" name="specialFeatures" value="Trailers"> Trailers<br>
   			<input type="checkbox" name="specialFeatures" value="Commentaries"> Commentaries<br>
-		  	<input type="checkbox" name="specialFeatures" value="DeletedScenes"> Deleted Scenes<br>
-		  	<input type="checkbox" name="specialFeatures" value="BehindTheScenes"> Behind the Scenes<br>
+		  	<input type="checkbox" name="specialFeatures" value="Deleted Scenes"> Deleted Scenes<br>
+		  	<input type="checkbox" name="specialFeatures" value="Behind the Scenes"> Behind the Scenes<br>
 		<br/>
 		<input type="submit" value="Edit Film">
 	</form>
