@@ -31,12 +31,12 @@ public class FilmController {
 	@RequestMapping(path = "addfilm.do", method = RequestMethod.POST)
 	public ModelAndView addFilm(@RequestParam("filmTitle") String title,
 			@RequestParam("description") String description, @RequestParam("releaseYear") int releaseYear,
-			@RequestParam("language") String language, @RequestParam("rentalDuration") int rentalDuration,
+			@RequestParam("languageId") int languageId, @RequestParam("rentalDuration") int rentalDuration,
 			@RequestParam("rentalRate") double rentalRate, @RequestParam("length") int length,
 			@RequestParam("replacementCost") double replacementCost, @RequestParam("rating") String rating,
 			@RequestParam(value="specialFeatures", required = false) String specialFeatures) {
 		ModelAndView mv = new ModelAndView();
-		Film film = new Film(title, description, releaseYear, language, rentalDuration, rentalRate, length,
+		Film film = new Film(title, description, releaseYear, languageId, rentalDuration, rentalRate, length,
 				replacementCost, rating, specialFeatures);
 		film = dao.createFilm(film);
 
