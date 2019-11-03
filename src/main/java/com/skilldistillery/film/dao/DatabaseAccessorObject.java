@@ -263,7 +263,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		return true;
 	}
 	
-	public boolean editFilm(Film film) {
+	public boolean editFilm(Film old, Film update) {
 		String user = "student";
 		String password = "student";
 		Connection conn = null;
@@ -271,33 +271,22 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			conn = DriverManager.getConnection(URL, user, password);
 		    conn.setAutoCommit(false); // START TRANSACTION
 		    String sql = "UPDATE film SET film.title=?, film.release_year=?, film.rating=?, film.description=?, film.language_id=?,"
-		    		+ "film.rental_duration=?, film.rental_rate=?, film.length=?, film.replacement_cost=?"
-		               + " WHERE id=?";
+		    		+ " film.rental_duration=?, film.rental_rate=?, film.length=?, film.replacement_cost=?, film.special_features=? WHERE id=?";
 		    PreparedStatement stmt = conn.prepareStatement(sql);
-		    stmt.setString(1, film.getTitle());
-		    stmt.setInt(2, film.getReleaseYear());
-		    stmt.setString(3, film.getRating());
-		    stmt.setInt(4, film.getLanguageId());
-		    stmt.setInt(5, film.getRentalDuration());
-		    stmt.setDouble(6, film.getRentalRate());
-		    stmt.setInt(7, film.getLength());
-		    stmt.setDouble(8, film.getReplacementCost());
-		    stmt.setString(9, film.getDescription());
-		    stmt.setInt(10, film.getId());
+		    stmt.setString(1, update.getTitle());
+		    stmt.setInt(2, update.getReleaseYear());
+		    stmt.setString(3, update.getRating());
+		    stmt.setString(4, update.getDescription());
+		    stmt.setInt(5, update.getLanguageId());
+		    stmt.setInt(6, update.getRentalDuration());
+		    stmt.setDouble(7, update.getRentalRate());
+		    stmt.setInt(8, update.getLength());
+		    stmt.setDouble(9, update.getReplacementCost());
+		    stmt.setString(10, update.getSpecialFeatures());
+		    stmt.setInt(11, old.getId());
+		    
 		    int updateCount = stmt.executeUpdate();
 		    if (updateCount == 1) {
-		      // Replace actor's film list
-		      sql = "DELETE FROM film_actor WHERE film_id = ?";
-		      stmt = conn.prepareStatement(sql);
-		      stmt.setInt(1, film.getId());
-		      updateCount = stmt.executeUpdate();
-		      sql = "INSERT INTO film_actor (film_id, actor_id) VALUES (?,?)";
-		      stmt = conn.prepareStatement(sql);
-		      for (Actor ac : film.getActorsInFilm()) {
-		        stmt.setInt(1, film.getId());
-		        stmt.setInt(2, ac.getId());
-		        updateCount = stmt.executeUpdate();
-		      }
 		      conn.commit();           // COMMIT TRANSACTION
 		    }
 		  } catch (SQLException sqle) {

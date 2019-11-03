@@ -28,7 +28,7 @@
 		</ul>
 	</c:if>
 	<c:if test="${film.id > 1000 }">
-		<form action="editfilmform.do" method="POST">
+		<form action="editfilmform.do" method="GET">
 		<input type="hidden" name="filmId" value="${film.id }" />
 		<input type="hidden" name="filmTitle" value="${film.title }" />
 		<input type="hidden" name="description" value="${film.description }" />
