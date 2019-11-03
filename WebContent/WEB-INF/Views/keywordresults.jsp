@@ -10,6 +10,9 @@
 </head>
 <body>
 
+	<form action="index.html">
+    <input type="submit" value="Home" />
+
 <c:choose>
   
   <c:when test="${films.isEmpty()}">
