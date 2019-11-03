@@ -145,8 +145,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		String user = "student";
 		String password = "student";
 		String sql = "SELECT category.name, film.id, film.language_id, film.rental_duration, film.length, film.rental_rate, film.special_features, "
-				+ "film.replacement_cost, film.title, film.release_year, film.rating, film.description, language.name FROM film JOIN film_category"
-				+ " on film.id = film_category.film_id JOIN category on film_category.category_id = category.id" 
+				+ "film.replacement_cost, film.title, film.release_year, film.rating, film.description, language.name FROM film LEFT JOIN film_category"
+				+ " on film.id = film_category.film_id LEFT JOIN category on film_category.category_id = category.id" 
 				+ " JOIN language ON film.language_id = language.id WHERE film.title "
 				+ "LIKE ? OR film.description LIKE ?";
 
