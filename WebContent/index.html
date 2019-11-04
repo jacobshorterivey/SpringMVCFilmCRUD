@@ -2,22 +2,45 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Home</title>
+<!-- Bootstrap -->
+<link
+    href="https://cdn.jsdelivr.net/webjars/org.webjars/bootstrap/4.3.1/css/bootstrap.css"
+    rel="stylesheet">
 </head>
 <body>
+<!-- <div class="morpheus-den-gradient> -->
+<div class="p-3 mb-2 bg-light text-dark">
 
-<h1><em>Welcome!</em></h1>
-
+<h1 align="center"><em>Welcome to JJ's Film Database!</em></h1>
+	<br>
+	<div>
 	<form action="filmsearch.html" method="GET">
-		<input type="submit" value="Film Search by ID" />
+		<input align="center" class="btn btn-info" type="submit" value="Film Search by ID" />
 	</form>
+	<br/>
 	<form action="searchbykeyword.html" method="GET">
-		<input type="submit" value="Film Search by Keyword" />
+		<input class="btn btn-info" type="submit" value="Film Search by Keyword" />
 	</form>
+	<br/>
 	<form action="addfilm.html" method="GET">
-		<input type="submit" value="Add a Film" />
+		<input class="btn btn-info" type="submit" value="Add a Film" />
 	</form>
-
+	</div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script
+        src="https://cdn.jsdelivr.net/webjars/org.webjars.bower/jquery/3.3.1/dist/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script
+        src="https://cdn.jsdelivr.net/webjars/org.webjars/popper.js/1.15.0/popper.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/webjars/org.webjars/bootstrap/4.3.1/js/bootstrap.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.3.1.js"></script>
 	
 </body>
 </html>

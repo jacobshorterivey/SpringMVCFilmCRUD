@@ -19,7 +19,26 @@
 			<li>ID: ${film.id}</li>
 			<li>Description: ${film.description}</li>
 			<li>Release Year: ${film.releaseYear}</li>
-			<li>Language ID: ${film.languageId}</li>
+			
+			<c:if test="${film.languageId == 1 }">
+				<li>Language: English</li>
+			</c:if>
+			<c:if test="${film.languageId == 2 }">
+				<li>Language: Italian</li>
+			</c:if>
+			<c:if test="${film.languageId == 3 }">
+				<li>Language: Japanese</li>
+			</c:if>
+			<c:if test="${film.languageId == 4 }">
+				<li>Language: Mandarin</li>
+			</c:if>
+			<c:if test="${film.languageId == 5 }">
+				<li>Language: French</li>
+			</c:if>
+			<c:if test="${film.languageId == 6 }">
+				<li>Language: German</li>
+			</c:if>
+			
 			<li>Rental Duration: ${film.rentalDuration}</li>
 			<li>Rental Rate: ${film.rentalRate}</li>
 			<li>Replacement Cost: ${film.replacementCost}</li>
@@ -27,7 +46,13 @@
 			<li>Category: ${film.category }</li>
 			<li>Film Rating: ${film.rating}</li>
 			<li>Special Features: ${film.specialFeatures}</li>
-			<li>Actors: ${film.actorsInFilm}</li>
+			<c:choose>
+				<c:when test="${film.actorsInFilm.isEmpty()}">
+				</c:when>
+				<c:otherwise>
+					<li>Actors: ${film.actorsInFilm}</li>
+				</c:otherwise>
+			</c:choose>
 		</ul>
 	</c:if>
 	<c:if test="${film.id > 1000 }">
