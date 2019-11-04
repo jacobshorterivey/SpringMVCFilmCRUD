@@ -1,65 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>Add a film</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-<h3><strong>Add a film to our database</strong></h3>
-<form action="addfilm.do" method="POST" modelAttribute="film">
-		<label>Title (String input): </label>
-		<input type="text" name="filmTitle">
-		<br/>
-		<label>Description (String input): </label>
-		<input type="text" name="description">
-		<br/>
-		<label>Release Year (Integer input): </label>
-		<input type="text" name="releaseYear">
-		<br/>
-		<p>Select Language: </p>
+	<h3>
+		<strong>Add a film to our database</strong>
+	</h3>
+	<form action="addfilm.do" method="POST" modelAttribute="film">
+		<label>Title (String input): </label> <input type="text"
+			name="filmTitle"> <br /> <label>Description (String
+			input): </label> <input type="text" name="description"> <br /> <label>Release
+			Year (Integer input): </label> <input type="text" name="releaseYear">
+		<br />
+		<p>Select Language:</p>
 		<select name="languageId">
-		  <option value="1">English</option>
-		  <option value="2">Italian</option>
-		  <option value="3">Japanese</option>
-		  <option value="4">Mandarin</option>
-		  <option value="5">French</option>
-		  <option value="6">German</option>
-		</select>
-		<br/>
-		<label>Rental Duration (Integer input): </label>
-		<input type="text" name="rentalDuration">
-		<br/>
-		<label>Rental Rate (Double input): </label>
-		<input type="text" name="rentalRate">
-		<br/>
-		<label>Length (Integer input): </label>
-		<input type="text" name="length">
-		<br/>
-		<label>Replacement Cost (Double input): </label>
-		<input type="text" name="replacementCost">
-		<br/>
-		
-<!-- 		<label>Category (String input): </label>
+			<option value="1">English</option>
+			<option value="2">Italian</option>
+			<option value="3">Japanese</option>
+			<option value="4">Mandarin</option>
+			<option value="5">French</option>
+			<option value="6">German</option>
+		</select> <br /> <label>Rental Duration (Integer input): </label> <input
+			type="text" name="rentalDuration"> <br /> <label>Rental
+			Rate (Double input): </label> <input type="text" name="rentalRate"> <br />
+		<label>Length (Integer input): </label> <input type="text"
+			name="length"> <br /> <label>Replacement Cost (Double
+			input): </label> <input type="text" name="replacementCost"> <br />
+
+		<!-- 		<label>Category (String input): </label>
 		<input type="text" name="category">
 		 -->
-		
-		<br/>
+
+		<br />
 		<p>Select Rating:</p>
 		<select name="rating">
-		  <option value="g">G</option>
-		  <option value="pg">PG</option>
-		  <option value="pg13">PG-13</option>
-		  <option value="r">R</option>
-		  <option value="nc17">NC-17</option>
-		</select>
-		<br/>
-		<h2>Select Special Features: </h2>
-		  	<input type="checkbox" name="specialFeatures" value="Trailers"> Trailers<br>
-  			<input type="checkbox" name="specialFeatures" value="Commentaries"> Commentaries<br>
-		  	<input type="checkbox" name="specialFeatures" value="DeletedScenes"> Deleted Scenes<br>
-		  	<input type="checkbox" name="specialFeatures" value="BehindTheScenes"> Behind the Scenes<br>
-		<br/>
-		<input type="submit" value="Add Film">
+			<option value="g">G</option>
+			<option value="pg">PG</option>
+			<option value="pg13">PG-13</option>
+			<option value="r">R</option>
+			<option value="nc17">NC-17</option>
+		</select> <br />
+		<h2>Select Special Features:</h2>
+		<input type="checkbox" name="specialFeatures" value="Trailers">
+		Trailers<br> <input type="checkbox" name="specialFeatures"
+			value="Commentaries"> Commentaries<br> <input
+			type="checkbox" name="specialFeatures" value="DeletedScenes">
+		Deleted Scenes<br> <input type="checkbox" name="specialFeatures"
+			value="BehindTheScenes"> Behind the Scenes<br> <br /> <input
+			type="submit" value="Add Film">
 	</form>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+		crossorigin="anonymous"></script>
 </body>
 </html>
